@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702970152564",
+    "project_id": "alexandria-university-app",
+    "storage_bucket": "alexandria-university-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702970152564:android:e59d4476e1a4493f037321",
+        "android_client_info": {
+          "package_name": "com.example.alex_uni_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702970152564-mp248f5n3sjo19nu3esq54d9vnhvd582.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9VF_JIowy25ybDzK4jJlxTG_OBVulrq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702970152564-mp248f5n3sjo19nu3esq54d9vnhvd582.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

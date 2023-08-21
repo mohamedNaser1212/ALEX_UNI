@@ -94,6 +94,11 @@ class SecondLoginForm extends StatelessWidget {
 
                   const SizedBox(height: 20), // Add some space between fields
                   CustomTextFormField(
+                    obscureText: true,
+                    onChanged: (value) {
+                      password = value;
+                    },
+                    keyboardType: TextInputType.visiblePassword,
                     validator: (data){
                       if(data!.isEmpty){
                         return 'الباسورد لا يمكن ان يكون فارغا';
