@@ -33,7 +33,7 @@ class RegesterationForm extends StatelessWidget {
       create: (context) => RegisterCubit(),
       child: BlocConsumer<RegisterCubit,RegisterStates>(
         listener: (context,state){
-          if(state is RegisterSuccessState){
+          if(state is CreateUserSuccessState){
             Navigator.pushReplacementNamed(context, LoginForm.id);
           }
         },

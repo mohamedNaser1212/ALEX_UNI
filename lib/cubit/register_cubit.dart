@@ -34,11 +34,11 @@ class RegisterCubit extends Cubit<RegisterStates>{
       emit(RegisterSuccessState(value.user!.uid));
       print(value.user!.email);
       print(value.user!.uid);
-      // userCreate(
-      //   name: name,
-      //   email: email,
-      //   uId: value.user!.uid,
-      // );
+      userCreate(
+        name: name,
+        email: email,
+        uId: value.user!.uid,
+      );
     }).catchError((e) {
       emit(RegisterErrorState(e.toString()));
       print(e.toString());
