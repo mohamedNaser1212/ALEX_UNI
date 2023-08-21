@@ -40,7 +40,21 @@ class SecondLoginForm extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Image.asset('assets/logoimage.png', width: 170, height: 80),
+
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(32),
+                            color: Colors.white,
+                          ),
+                          width: 250,
+                          height: 120,
+                          child: Image.asset(
+                            'assets/facebook 4.png',
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 100),
@@ -72,14 +86,13 @@ class SecondLoginForm extends StatelessWidget {
                       },
 
                       decoration: const InputDecoration(
-
                         labelText: 'رقم الهاتف',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(20),
                           ),
                           borderSide: BorderSide(
-
+                            color: Colors.white,
                           ),
                         ),
                       ),

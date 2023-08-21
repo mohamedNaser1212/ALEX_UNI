@@ -1,7 +1,6 @@
 import 'package:alex_uni_app/reusable_widgets.dart';
 import 'package:alex_uni_app/screens/home_screen.dart';
 import 'package:alex_uni_app/screens/regesteration_form.dart';
-import 'package:alex_uni_app/screens/second_login_form.dart';
 import 'package:alex_uni_app/states/login_states.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +22,10 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => LoginCubit(),
-      child: BlocConsumer<LoginCubit,LoginStates>(
+        child: BlocConsumer<LoginCubit,LoginStates>(
         listener: (context, state) {
           if (state is LoginSuccessState) {
-            navigateAndFinish(context: context, screen: HomeScreen());
+            navigateAndFinish(context: context, screen: const HomeScreen());
           }
         },
         builder: (context,state){
@@ -58,8 +57,22 @@ class LoginForm extends StatelessWidget {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
+
                           children: [
-                            Image.asset('assets/logoimage.png', width: 170, height: 80),
+                           Padding(
+                             padding: const EdgeInsets.all(8.0),
+                             child:Container(
+                               decoration: BoxDecoration(
+                                 borderRadius: BorderRadius.circular(32),
+                                 color: Colors.white,
+                               ),
+                               width: 250,
+                               height: 120,
+                               child: Image.asset(
+                                 'assets/facebook 4.png',
+                               ),
+                             ),
+                           ),
                           ],
                         ),
                         const  SizedBox(height: 100),
@@ -167,7 +180,7 @@ class LoginForm extends StatelessWidget {
                                   )
                               ),
                             ),
-                            fallback: (context)=>CircularProgressIndicator(),
+                            fallback: (context)=>const CircularProgressIndicator(),
                         ),
                         const SizedBox(
                           height: 40,

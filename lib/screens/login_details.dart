@@ -64,7 +64,7 @@ class LoginDetails extends StatelessWidget {
                         child: Container(
                           width: 270,
                           height: 60,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(90),
                               bottomRight: Radius.circular(50),
@@ -72,7 +72,7 @@ class LoginDetails extends StatelessWidget {
                             ),
                             color: KRegesterButtoncolor,
                           ),
-                          child: Row(
+                          child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
@@ -103,7 +103,7 @@ class LoginDetails extends StatelessWidget {
                         child: Container(
                           width: 270,
                           height: 60,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(50),
                               bottomRight: Radius.circular(90),
@@ -111,7 +111,7 @@ class LoginDetails extends StatelessWidget {
                             ),
                             color: KLOGINBUTTONCOLOR,
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -144,7 +144,7 @@ class LoginDetails extends StatelessWidget {
                           borderRadius: BorderRadius.circular(190),
                           color: Colors.white,
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'الدخول كزائر',
                             style: TextStyle(
