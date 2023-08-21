@@ -14,7 +14,7 @@ class LoginDetails extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/whitebackground.png'), // Replace with your background image path
+            image: AssetImage('assets/images/whitebackground.png'), // Replace with your background image path
             fit: BoxFit.cover,
           ),
         ),
@@ -26,10 +26,19 @@ class LoginDetails extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/facebook 4.png',
-                        height: 200,
-                        width: 300,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(32),
+                            color: Colors.white,
+                          ),
+                          width: 250,
+                          height: 120,
+                          child: Image.asset(
+                            'assets/images/facebook 4.png',
+                          ),
+                        ),
                       ),
                     ],
                   ),

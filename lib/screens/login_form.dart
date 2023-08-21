@@ -69,7 +69,7 @@ class LoginForm extends StatelessWidget {
                                width: 250,
                                height: 120,
                                child: Image.asset(
-                                 'assets/facebook 4.png',
+                                 'assets/images/facebook 4.png',
                                ),
                              ),
                            ),

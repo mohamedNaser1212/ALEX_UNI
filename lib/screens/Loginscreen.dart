@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
         // Set the background image using BoxDecoration
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/whitebackground.png'),
+            image: AssetImage('assets/images/whitebackground.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/facebook 4.png'),
+                      Image.asset('assets/images/facebook 4.png'),
                     ],
                   ),
                   const SizedBox(height: 20),
