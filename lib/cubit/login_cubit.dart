@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../states/login_states.dart';
@@ -6,7 +5,7 @@ import '../states/login_states.dart';
 class LoginCubit extends Cubit<LoginStates> {
   LoginCubit() : super(LoginInitialState());
 
-  static LoginCubit get(context) => BlocProvider.of(context);
+static LoginCubit get(context) => BlocProvider.of(context);
 
   void userLogin({
     required String email,
@@ -25,4 +24,5 @@ class LoginCubit extends Cubit<LoginStates> {
       print(e.toString());
     });
   }
+
 }
