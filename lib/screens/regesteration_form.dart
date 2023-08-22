@@ -1,5 +1,7 @@
 import 'package:alex_uni_app/cubit/register_cubit.dart';
+import 'package:alex_uni_app/custom_widgets/Intle_phone_widget.dart';
 import 'package:alex_uni_app/screens/email_sign_in_page.dart';
+import 'package:alex_uni_app/screens/regesteration_form.dart';
 import 'package:alex_uni_app/states/register_states.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -194,40 +196,7 @@ class RegesterationForm extends StatelessWidget {
                           if (!cubit.showEmailField)
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: IntlPhoneField(
-                                validator: (PhoneNumber? phoneNumber) {
-                                  if (phoneNumber == null || phoneNumber.number.isEmpty) {
-                                    return 'من فضلك ادخل رقم الهاتف';
-                                  } else if (phoneNumber.number.length < 11) {
-                                    return 'من فضلك ادخل رقم الهاتف بشكل صحيح';
-                                  }
-                                },
-                                decoration: const InputDecoration(
-                                  labelText: 'رقم الهاتف',
-                                  labelStyle: TextStyle(
-                                    color: Colors.white,
-
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
-                                    borderSide: BorderSide(),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
-                                    borderSide: BorderSide(
-                                      color: Colors.white, // White border color
-                                    ),
-                                  ),
-                                ),
-                                initialCountryCode: 'EG',
-                                onChanged: (PhoneNumber? phoneNumber) {
-                                  phone = phoneNumber!.number as num?;
-                                },
-                              ),
+                              child: Intelphonewidget(),
                             ),
                           CustomTextFormField(
                             keyboardType: TextInputType.visiblePassword,

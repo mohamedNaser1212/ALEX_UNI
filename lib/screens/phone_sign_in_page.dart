@@ -1,3 +1,4 @@
+import 'package:alex_uni_app/custom_widgets/Intle_phone_widget.dart';
 import 'package:alex_uni_app/screens/regesteration_form.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -75,44 +76,7 @@ class SecondLoginForm extends StatelessWidget {
                   const SizedBox(height: 60),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child:  IntlPhoneField(
-                      validator: (PhoneNumber? phoneNumber) {
-                        if (phoneNumber == null || phoneNumber.number.isEmpty ) {
-                          return 'من فضلك ادخل رقم الهاتف';
-                        }else if(phoneNumber.number.length < 11){
-                          return 'من فضلك ادخل رقم الهاتف بشكل صحيح';
-                        }
-                        return null;
-                      },
-
-                      decoration: const InputDecoration(
-                        labelText: 'رقم الهاتف',
-                        labelStyle: TextStyle(
-                          color: Colors.white,
-
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20),
-                          ),
-                          borderSide: BorderSide(),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(20),
-                          ),
-                          borderSide: BorderSide(
-                            color: Colors.white, // White border color
-                          ),
-                        ),
-                      ),
-                      initialCountryCode: 'EG',
-                      onChanged: (PhoneNumber? phoneNumber) {
-                        phone = phoneNumber!.number as num?;
-
-
-                      },
-                    ),
+                    child:  Intelphonewidget()
                   ),
 
                   const SizedBox(height: 20), // Add some space between fields

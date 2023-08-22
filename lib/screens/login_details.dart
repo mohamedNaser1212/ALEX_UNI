@@ -26,20 +26,7 @@ class LoginDetails extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child:Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32),
-                            color: Colors.white,
-                          ),
-                          width: 250,
-                          height: 120,
-                          child: Image.asset(
-                            'assets/images/facebook 4.png',
-                          ),
-                        ),
-                      ),
+                      Image.asset('assets/images/facebook 4.png'),
                     ],
                   ),
                   const SizedBox(height: 20),
