@@ -39,9 +39,19 @@ class RegisterCubit extends Cubit<RegisterStates>{
         email: email,
         uId: value.user!.uid,
       );
-    }).catchError((e) {
-      emit(RegisterErrorState(e.toString()));
-      print(e.toString());
+    }).catchError((error) {
+      if (error is FirebaseAuthException) {
+        if (error.code == 'weak-password') {
+          emit(RegisterErrorState( error: 'كلمه السر ضعيفه',));
+        } else if (error.code == 'email-already-in-use') {
+          emit(RegisterErrorState(error: 'هذا البريد الالكتروني مسجل بالفعل'));
+        } else {
+          emit(RegisterErrorState(error: 'حدث خطأ ما,حاول مره اخري'));
+        }
+      } else {
+        emit(RegisterErrorState(error: 'An error occurred: $error'));
+      }
+      print(error.toString());
     });
   }
 

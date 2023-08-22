@@ -5,24 +5,40 @@ import '../states/login_states.dart';
 class LoginCubit extends Cubit<LoginStates> {
   LoginCubit() : super(LoginInitialState());
 
-static LoginCubit get(context) => BlocProvider.of(context);
+  static LoginCubit get(context) => BlocProvider.of(context);
 
   void userLogin({
     required String email,
     required String password,
-  }) {
+  }) async {
     emit(LoginLoadingState());
-    FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    ).then((value) {
-      emit(LoginSuccessState(value.user!.uid));
-      print(value.user!.email);
-      print(value.user!.uid);
-    }).catchError((e){
-      emit(LoginErrorState(e.toString()));
-      print(e.toString());
-    });
-  }
+    try {
+      UserCredential userCredential =
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
+      emit(LoginSuccessState(userCredential.user!.uid));
+      print(userCredential.user!.email);
+      print(userCredential.user!.uid);
+    } on FirebaseAuthException catch (e) {
+      String errorMessage = 'حدث خطأ ما';
+      if (e.code == 'user-not-found') {
+       emit(LoginErrorState(error:'لم يتم العثور على مستخدم بهذا البريد الإلكتروني.'));
+      } else if (e.code == 'wrong-password') {
+        emit(LoginErrorState(error: 'كلمه السر خطأ'));
+      }else if(e.code == 'invalid-email') {
+       emit(LoginErrorState(error: 'البريد الإلكتروني غير صالح'))  ;
+      }else{
+        emit(LoginErrorState(error:errorMessage));
+
+      }
+
+      print(e.toString());
+    } catch (e) {
+      emit(LoginErrorState(error: 'حدث خطأ ما',  ));
+      print(e.toString());
+    }
+  }
 }

@@ -37,6 +37,9 @@ class RegesterationForm extends StatelessWidget {
           if(state is CreateUserSuccessState){
             Navigator.pushReplacementNamed(context, LoginForm.id);
           }
+          if(state is RegisterErrorState){
+            showSnackBar(context,state.error);
+          }
         },
         builder: (context,state){
 
@@ -206,10 +209,10 @@ class RegesterationForm extends StatelessWidget {
                             },
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Password is required';
+                                return 'الباسورد مطلوب';
                               }
-                              if (value.length < 6) {
-                                return 'Password must be at least 6 characters';
+                              if (value.length < 8) {
+                                return 'كلمه السر يجب الا تقل عن 8 احرف ';
                               }
                               password = value;
                               return null;
@@ -224,10 +227,10 @@ class RegesterationForm extends StatelessWidget {
                             },
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'Confirm Password is required';
+                                return 'تأكيد الباسورد مطلوب';
                               }
                               if (value != password) {
-                                return 'Passwords do not match';
+                                return 'كلمات السر غير متطابقه';
                               }
                               confirmPassword = value;
                               return null;
@@ -313,6 +316,11 @@ class RegesterationForm extends StatelessWidget {
         },
       ),
     );
+  }
+  void showSnackBar(BuildContext context,String message){
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(message),),);
+
   }
 }
 

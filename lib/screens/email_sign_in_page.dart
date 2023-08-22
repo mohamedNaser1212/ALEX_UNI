@@ -27,6 +27,11 @@ class LoginForm extends StatelessWidget {
           if (state is LoginSuccessState) {
             navigateAndFinish(context: context, screen: const HomeScreen());
           }
+          if (state is LoginErrorState) {
+
+                showSnackBar(context,state.error);
+
+          }
         },
         builder: (context,state){
 
@@ -221,4 +226,10 @@ class LoginForm extends StatelessWidget {
       ),
     );
   }
+   void showSnackBar(BuildContext context,String message){
+     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+       content: Center(child: Text(message)),),);
+
+   }
+
 }

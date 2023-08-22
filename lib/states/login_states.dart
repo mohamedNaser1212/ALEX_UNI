@@ -7,6 +7,6 @@ class LoginSuccessState extends LoginStates{
   LoginSuccessState(this.uId);
 }
 class LoginErrorState extends LoginStates{
-  final String error;
-  LoginErrorState(this.error);
+   String error;
+  LoginErrorState({required this.error});
 }
