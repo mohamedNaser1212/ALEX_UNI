@@ -21,7 +21,7 @@ class CustomORWidget extends StatelessWidget {
         const Text('او',
           style: TextStyle(
               fontSize: 26,
-              fontFamily: 'Bebas Neue',
+              fontFamily: KFontFamilyA,
               fontWeight: FontWeight.bold,
               color: KBlueColor),
           textAlign: TextAlign.center,

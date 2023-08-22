@@ -1,3 +1,5 @@
+import 'package:alex_uni_app/custom_widgets/Custom_Top_Right_And_Left_And_Bottom_Right.dart';
+import 'package:alex_uni_app/screens/Loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:alex_uni_app/constants.dart';
 import 'package:alex_uni_app/screens/login_details.dart';
@@ -39,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 34,
                           fontWeight: FontWeight.w300,
-                          fontFamily: 'Bebas Neue',
+                          fontFamily:KFontFamilyA,
                           color: KBlueColor,
                         ),
                         textAlign: TextAlign.center,
@@ -48,7 +50,7 @@ class LoginScreen extends StatelessWidget {
                         'ALEXANDRIA UNIVERSITY APP. ',
                         style: TextStyle(
                           fontSize: 34,
-                          fontFamily: 'Bebas Neue',
+                          fontFamily: KFontFamilyA,
                           fontWeight: FontWeight.w300,
                           color: KBlueColor,
                         ),
@@ -59,29 +61,10 @@ class LoginScreen extends StatelessWidget {
                         onTap: () {
                           Navigator.pushNamed(context, LoginDetails.id);
                         },
-                        child: Container(
-                          width: 200,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(90),
-                              bottomRight: Radius.circular(50),
-                              topRight: Radius.circular(50),
-                            ),
-                            color: KLOGINBUTTONCOLOR,
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'تسجيل الدخول',
-                              style: TextStyle(
-                                fontSize: 26,
-                                fontFamily: 'Bebas Neue',
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                        child: const CustomTopRightAndLeftAndBottomRight(
+                          text: 'تسجيل الدخول',
+                          TextColor: Colors.white,
+                          ContainerColor: KLOGINBUTTONCOLOR,
                         ),
                       ),
                       const SizedBox(height: 40),
@@ -105,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                               'انشاء حساب',
                               style: TextStyle(
                                 fontSize: 26,
-                                fontFamily: 'Bebas Neue',
+                                fontFamily: KFontFamilyA,
                                 fontWeight: FontWeight.bold,
                                 color: KBlueColor,
                               ),
@@ -127,7 +110,7 @@ class LoginScreen extends StatelessWidget {
                             'الدخول كزائر',
                             style: TextStyle(
                               fontSize: 26,
-                              fontFamily: 'Bebas Neue',
+                              fontFamily: KFontFamilyA,
                               fontWeight: FontWeight.bold,
                               color: KBlueColor,
                             ),
@@ -145,6 +128,43 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+class CustomTopLeftAndBottomLeftAndRight extends StatelessWidget {
+  const CustomTopLeftAndBottomLeftAndRight({super.key,
+    required this.text, required this.TextColor,
+    required this.ContainerColor  ,
+
+  });
+  final String text;
+  final Color TextColor ;
+  final Color ContainerColor ;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 200,
+      height: 60,
+      decoration:  BoxDecoration(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(50),
+          bottomRight: Radius.circular(90),
+          bottomLeft: Radius.circular(50),
+        ),
+        color: ContainerColor,
+      ),
+      child:  Center(
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 26,
+            fontFamily: KFontFamilyA,
+            fontWeight: FontWeight.bold,
+            color: TextColor,
+          ),
+          textAlign: TextAlign.center,
         ),
       ),
     );

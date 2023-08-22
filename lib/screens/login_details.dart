@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:alex_uni_app/custom_widgets/customORwidget.dart';
-import 'package:alex_uni_app/screens/second_login_form.dart';
-import 'package:alex_uni_app/screens/login_form.dart';
+import 'package:alex_uni_app/screens/phone_sign_in_page.dart';
+import 'package:alex_uni_app/screens/email_sign_in_page.dart';
 import '../constants.dart';
 import '../custom_widgets/custom_social_media_icons.dart';
 
@@ -50,7 +50,7 @@ class LoginDetails extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 34,
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Tajawal',
+                          fontFamily: KFontFamilyT,
                           color: KBlueColor,
                         ),
                         textAlign: TextAlign.center,
@@ -59,7 +59,7 @@ class LoginDetails extends StatelessWidget {
                         'من خلال ',
                         style: TextStyle(
                           fontSize: 26,
-                          fontFamily: 'Tajawal',
+                          fontFamily: KFontFamilyT,
                           fontWeight: FontWeight.w900,
                           color: KBlueColor,
                         ),
@@ -88,7 +88,7 @@ class LoginDetails extends StatelessWidget {
                                 'رقم الهاتف',
                                 style: TextStyle(
                                   fontSize: 22,
-                                  fontFamily: 'Tajawal',
+                                  fontFamily: KFontFamilyT,
                                   fontWeight: FontWeight.w900,
                                   color: KBlueColor,
                                 ),
@@ -128,7 +128,7 @@ class LoginDetails extends StatelessWidget {
                                   'البريد الالكتروني ',
                                   style: TextStyle(
                                     fontSize: 22,
-                                    fontFamily: 'Tajawal',
+                                    fontFamily: KFontFamilyT,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
@@ -158,7 +158,7 @@ class LoginDetails extends StatelessWidget {
                             'الدخول كزائر',
                             style: TextStyle(
                               fontSize: 24,
-                              fontFamily: 'Tajawal',
+                              fontFamily: KFontFamilyT,
                               fontWeight: FontWeight.bold,
                               color: KBlueColor,
                             ),

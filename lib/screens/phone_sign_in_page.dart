@@ -65,7 +65,7 @@ class SecondLoginForm extends StatelessWidget {
                         'تسجيل الدخول',
                         style: TextStyle(
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Tajawal',
+                          fontFamily: KFontFamilyT,
                           fontSize: 34,
                           color: Colors.white,
                         ),
@@ -87,12 +87,22 @@ class SecondLoginForm extends StatelessWidget {
 
                       decoration: const InputDecoration(
                         labelText: 'رقم الهاتف',
+                        labelStyle: TextStyle(
+                          color: Colors.white,
+
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(20),
                           ),
+                          borderSide: BorderSide(),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
                           borderSide: BorderSide(
-                            color: Colors.white,
+                            color: Colors.white, // White border color
                           ),
                         ),
                       ),
@@ -130,7 +140,7 @@ class SecondLoginForm extends StatelessWidget {
                           'نسيت كلمة السر؟',
                           style: TextStyle(
                             fontWeight: FontWeight.w900,
-                            fontFamily: 'Tajawal',
+                            fontFamily: KFontFamilyT,
                             color: Color(0xff6DCFF6),
                           ),
                         ),
@@ -141,7 +151,6 @@ class SecondLoginForm extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       if (formKey.currentState!.validate()) {
-                        print('valid');
 
                       }else{
                         print('not valid');
@@ -162,7 +171,7 @@ class SecondLoginForm extends StatelessWidget {
                           'تسجيل الدخول',
                           style: TextStyle(
                             fontSize: 22,
-                            fontFamily: 'Tajawal ',
+                            fontFamily: KFontFamilyT,
                             fontWeight: FontWeight.w900,
                             color: Colors.white,
                           ),
@@ -182,15 +191,16 @@ class SecondLoginForm extends StatelessWidget {
                         child: const Text('انشاء حساب',
                           style: TextStyle(
                             fontWeight: FontWeight.w900,
-                            fontFamily: 'Tajawal',
+                            fontFamily: KFontFamilyT,
                             color: KRegesterButtoncolor,
 
                           ),),
                       ),
+                      const SizedBox(width: 5,),
                       const Text('ليس لديك حساب؟',
                         style: TextStyle(
                           fontWeight: FontWeight.w900,
-                          fontFamily: 'Tajawal',
+                          fontFamily: KFontFamilyT,
                           color: Colors.white,
 
                         ),),

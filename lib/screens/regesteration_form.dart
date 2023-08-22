@@ -1,6 +1,5 @@
 import 'package:alex_uni_app/cubit/register_cubit.dart';
-import 'package:alex_uni_app/screens/Loginscreen.dart';
-import 'package:alex_uni_app/screens/login_form.dart';
+import 'package:alex_uni_app/screens/email_sign_in_page.dart';
 import 'package:alex_uni_app/states/register_states.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -83,14 +82,14 @@ class RegesterationForm extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 20),
-                          const Row(
+                           const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 'انشاء حساب',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w900,
-                                  fontFamily: 'Tajawal',
+                                  fontFamily: KFontFamilyT,
                                   fontSize: 34,
                                   color: Colors.white,
                                 ),
@@ -205,6 +204,10 @@ class RegesterationForm extends StatelessWidget {
                                 },
                                 decoration: const InputDecoration(
                                   labelText: 'رقم الهاتف',
+                                  labelStyle: TextStyle(
+                                    color: Colors.white,
+
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(20),
@@ -284,12 +287,12 @@ class RegesterationForm extends StatelessWidget {
                                     ),
                                     color: KRegesterButtoncolor,
                                   ),
-                                  child: const Center(
+                                  child:  const Center(
                                     child: Text(
                                       'انشاء حساب',
                                       style: TextStyle(
                                         fontSize: 26,
-                                        fontFamily: 'Bebas Neue',
+                                        fontFamily: KFontFamilyA,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
                                       ),
@@ -298,7 +301,7 @@ class RegesterationForm extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              fallback: (context)=>CircularProgressIndicator(),
+                              fallback: (context)=>const CircularProgressIndicator(),
                           ),
                           const SizedBox(height: 20),
                           Row(
@@ -317,6 +320,8 @@ class RegesterationForm extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              const SizedBox(width: 5,),
+
                               const Text(
                                 'لديك حساب بالفعل ؟',
                                 style: TextStyle(

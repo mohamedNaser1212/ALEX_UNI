@@ -1,9 +1,9 @@
 import 'package:alex_uni_app/screens/Loginscreen.dart';
 import 'package:alex_uni_app/screens/home_screen.dart';
 import 'package:alex_uni_app/screens/login_details.dart';
-import 'package:alex_uni_app/screens/login_form.dart';
+import 'package:alex_uni_app/screens/email_sign_in_page.dart';
 import 'package:alex_uni_app/screens/regesteration_form.dart';
-import 'package:alex_uni_app/screens/second_login_form.dart';
+import 'package:alex_uni_app/screens/phone_sign_in_page.dart';
 import 'package:alex_uni_app/screens/splash_screen.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';

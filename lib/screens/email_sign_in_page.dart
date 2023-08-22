@@ -83,7 +83,7 @@ class LoginForm extends StatelessWidget {
                               'تسجيل الدخول',
                               style: TextStyle(
                                 fontWeight: FontWeight.w900,
-                                fontFamily: 'Tajawal',
+                                fontFamily: KFontFamilyT,
                                 fontSize: 34,
                                 color: Colors.white,
                               ),
@@ -130,7 +130,7 @@ class LoginForm extends StatelessWidget {
                               Text('نسيت كلمة السر؟',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w900,
-                                  fontFamily: 'Tajawal',
+                                  fontFamily: KFontFamilyT,
                                   color: Color(0xff6DCFF6),
                                 ),
                               ),
@@ -172,7 +172,7 @@ class LoginForm extends StatelessWidget {
                                     child: Text('تسجيل الدخول',
                                       style: TextStyle(
                                           fontSize: 22,
-                                          fontFamily: 'Tajawal ',
+                                          fontFamily: KFontFamilyT,
                                           fontWeight: FontWeight.w900,
                                           color: Colors.white),
                                       textAlign: TextAlign.center,
@@ -195,7 +195,7 @@ class LoginForm extends StatelessWidget {
                               child: const Text('انشاء حساب',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w900,
-                                  fontFamily: 'Tajawal',
+                                  fontFamily: KFontFamilyT,
                                   color: KRegesterButtoncolor,
 
                                 ),),
@@ -203,7 +203,7 @@ class LoginForm extends StatelessWidget {
                             const Text('ليس لديك حساب؟',
                               style: TextStyle(
                                 fontWeight: FontWeight.w900,
-                                fontFamily: 'Tajawal',
+                                fontFamily: KFontFamilyT,
                                 color: Colors.white,
 
                               ),),

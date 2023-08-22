@@ -13,7 +13,7 @@ class CustomSocialMediaIcons extends StatelessWidget {
           style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w900,
-              fontFamily: 'Tajawal',
+              fontFamily: KFontFamilyT,
               color: KBlueColor),
           textAlign: TextAlign.center,
         ),
