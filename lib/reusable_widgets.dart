@@ -74,9 +74,11 @@ Widget reusableTextFormField({
     );
 
 void navigateTo({
+
   required context,
   required Widget screen,
 }) {
+
   Navigator.push(
     context,
     MaterialPageRoute(
@@ -84,7 +86,17 @@ void navigateTo({
     ),
   );
 }
-
+void navigateReplacement({
+  required context,
+  required Widget screen,
+}) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => screen,
+    ),
+  );
+}
 void navigateAndFinish({
   required context,
   required Widget screen,

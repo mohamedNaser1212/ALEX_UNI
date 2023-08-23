@@ -1,5 +1,6 @@
 import 'package:alex_uni_app/cubit/register_cubit.dart';
 import 'package:alex_uni_app/custom_widgets/Intle_phone_widget.dart';
+import 'package:alex_uni_app/custom_widgets/custom_alex_uni_logo.dart';
 import 'package:alex_uni_app/screens/email_sign_in_page.dart';
 import 'package:alex_uni_app/screens/regesteration_form.dart';
 import 'package:alex_uni_app/states/register_states.dart';
@@ -67,22 +68,12 @@ class RegesterationForm extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Row(
+                          const Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child:Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(32),
-                                    color: Colors.white,
-                                  ),
-                                  width: 250,
-                                  height: 110,
-                                  child: Image.asset(
-                                    'assets/images/facebook 4.png',
-                                  ),
-                                ),
+                                padding: EdgeInsets.all(8.0),
+                                child:customAlexunilogo(),
                               ),
                             ],
                           ),

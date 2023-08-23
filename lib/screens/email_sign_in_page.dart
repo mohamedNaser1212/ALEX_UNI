@@ -1,5 +1,8 @@
+import 'package:alex_uni_app/custom_widgets/custom_alex_uni_logo.dart';
 import 'package:alex_uni_app/reusable_widgets.dart';
+import 'package:alex_uni_app/screens/forget_password.dart';
 import 'package:alex_uni_app/screens/home_screen.dart';
+import 'package:alex_uni_app/screens/new_password.dart';
 import 'package:alex_uni_app/screens/regesteration_form.dart';
 import 'package:alex_uni_app/states/login_states.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
@@ -11,25 +14,25 @@ import '../cubit/login_cubit.dart';
 import '../custom_widgets/custom_text_form_field.dart';
 
 class LoginForm extends StatelessWidget {
-   LoginForm({super.key});
+  LoginForm({super.key});
   static String id = 'LoginForm';
   String? email;
-   String? password;
-   bool isloading = false;
+  String? password;
+  bool isloading = false;
 
-   GlobalKey<FormState> formKey = GlobalKey();
+  GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => LoginCubit(),
-        child: BlocConsumer<LoginCubit,LoginStates>(
+      child: BlocConsumer<LoginCubit,LoginStates>(
         listener: (context, state) {
           if (state is LoginSuccessState) {
             navigateAndFinish(context: context, screen: const HomeScreen());
           }
           if (state is LoginErrorState) {
 
-                showSnackBar(context,state.error);
+            showSnackBar(context,state.error);
 
           }
         },
@@ -60,24 +63,14 @@ class LoginForm extends StatelessWidget {
 
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.end,
 
                           children: [
-                           Padding(
-                             padding: const EdgeInsets.all(8.0),
-                             child:Container(
-                               decoration: BoxDecoration(
-                                 borderRadius: BorderRadius.circular(32),
-                                 color: Colors.white,
-                               ),
-                               width: 250,
-                               height: 120,
-                               child: Image.asset(
-                                 'assets/images/facebook 4.png',
-                               ),
-                             ),
-                           ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child:customAlexunilogo(),
+                            ),
                           ],
                         ),
                         const  SizedBox(height: 100),
@@ -128,15 +121,20 @@ class LoginForm extends StatelessWidget {
                             password = data;
                           },
                         ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.0),
+                         Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.0),
                           child: Row(
                             children: [
-                              Text('نسيت كلمة السر؟',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w900,
-                                  fontFamily: KFontFamilyT,
-                                  color: Color(0xff6DCFF6),
+                              InkWell(
+                                onTap: (){
+                                  navigateTo(context: context, screen: const ForgotPassword());
+                                },
+                                child: const Text('نسيت كلمة السر؟',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w900,
+                                    fontFamily: KFontFamilyT,
+                                    color: Color(0xff6DCFF6),
+                                  ),
                                 ),
                               ),
                             ],
@@ -147,45 +145,45 @@ class LoginForm extends StatelessWidget {
                           height: 30,
                         ),
                         ConditionalBuilder(
-                            condition: state is! LoginLoadingState,
-                            builder: (context)=>GestureDetector(
-                              onTap: (){
-                                if(formKey.currentState!.validate()){
-                                  cubit.userLogin(
-                                    email: email!,
-                                    password: password!,
-                                  );
-                                  print('Valid');
+                          condition: state is! LoginLoadingState,
+                          builder: (context)=>GestureDetector(
+                            onTap: (){
+                              if(formKey.currentState!.validate()){
+                                cubit.userLogin(
+                                  email: email!,
+                                  password: password!,
+                                );
+                                print('Valid');
 
-                                }else{
-                                  print('Not Valid');
-                                }
-                              },
-                              child: Container(
-                                  width: 200,
-                                  height: 60,
-                                  decoration:const  BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(90),
-                                      bottomRight: Radius.circular(50),
-
-                                    ),
-                                    color: KRegesterButtoncolor,
+                              }else{
+                                print('Not Valid');
+                              }
+                            },
+                            child: Container(
+                                width: 200,
+                                height: 60,
+                                decoration:const  BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(90),
+                                    bottomRight: Radius.circular(50),
 
                                   ),
-                                  child: const Center(
-                                    child: Text('تسجيل الدخول',
-                                      style: TextStyle(
-                                          fontSize: 22,
-                                          fontFamily: KFontFamilyT,
-                                          fontWeight: FontWeight.w900,
-                                          color: Colors.white),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  )
-                              ),
+                                  color: KRegesterButtoncolor,
+
+                                ),
+                                child: const Center(
+                                  child: Text('تسجيل الدخول',
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        fontFamily: KFontFamilyT,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
                             ),
-                            fallback: (context)=>const CircularProgressIndicator(),
+                          ),
+                          fallback: (context)=>const CircularProgressIndicator(),
                         ),
                         const SizedBox(
                           height: 40,
@@ -226,10 +224,10 @@ class LoginForm extends StatelessWidget {
       ),
     );
   }
-   void showSnackBar(BuildContext context,String message){
-     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-       content: Center(child: Text(message)),),);
+  void showSnackBar(BuildContext context,String message){
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Center(child: Text(message)),),);
 
-   }
+  }
 
 }

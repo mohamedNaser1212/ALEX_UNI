@@ -1,4 +1,5 @@
 import 'package:alex_uni_app/custom_widgets/Intle_phone_widget.dart';
+import 'package:alex_uni_app/custom_widgets/custom_alex_uni_logo.dart';
 import 'package:alex_uni_app/screens/regesteration_form.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -38,23 +39,13 @@ class SecondLoginForm extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 textDirection: TextDirection.rtl,
                 children: [
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
 
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child:Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32),
-                            color: Colors.white,
-                          ),
-                          width: 250,
-                          height: 120,
-                          child: Image.asset(
-                            'assets/images/facebook 4.png',
-                          ),
-                        ),
+                        padding: EdgeInsets.all(8.0),
+                        child:customAlexunilogo(),
                       ),
                     ],
                   ),
@@ -120,26 +111,31 @@ class SecondLoginForm extends StatelessWidget {
                         print('not valid');
                       }
                     },
-                    child: Container(
-                      width: 200,
-                      height: 60,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(90),
-                          bottomRight: Radius.circular(50),
-                        ),
-                        color: Colors.blue, // Use KRegesterButtoncolor here
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'تسجيل الدخول',
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: KFontFamilyT,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.white,
+                    child: InkWell(
+                      onTap: (){
+
+                      },
+                      child: Container(
+                        width: 200,
+                        height: 60,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(90),
+                            bottomRight: Radius.circular(50),
                           ),
-                          textAlign: TextAlign.center,
+                          color: Colors.blue, // Use KRegesterButtoncolor here
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'تسجيل الدخول',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontFamily: KFontFamilyT,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     ),

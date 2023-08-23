@@ -7,7 +7,7 @@ class LoginSuccessState extends LoginStates{
   LoginSuccessState(this.uId);
 }
 class LoginErrorState extends LoginStates{
-   String error;
+  String error;
   LoginErrorState({required this.error});
 }
 
@@ -22,4 +22,3 @@ class CreateUserLoadingState extends LoginStates{}
 class CreateUserSuccessState extends LoginStates{}
 
 class CreateUserErrorState extends LoginStates{}
-

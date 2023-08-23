@@ -5,11 +5,12 @@ import 'package:intl_phone_field/phone_number.dart';
 
 class Intelphonewidget extends StatelessWidget {
   Intelphonewidget({super.key});
-  num? phone;
+  PhoneNumber? phone;
 
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
+
       validator: (PhoneNumber? phoneNumber) {
         if (phoneNumber == null || phoneNumber.number.isEmpty) {
           return 'من فضلك ادخل رقم الهاتف';
@@ -40,7 +41,8 @@ class Intelphonewidget extends StatelessWidget {
       ),
       initialCountryCode: 'EG',
       onChanged: (PhoneNumber? phoneNumber) {
-        phone = phoneNumber!.number as num?;
+        phone = phoneNumber  ;
+        print(phone!.completeNumber);
       },
     );
   }

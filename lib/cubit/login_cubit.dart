@@ -30,11 +30,11 @@ class LoginCubit extends Cubit<LoginStates> {
     } on FirebaseAuthException catch (e) {
       String errorMessage = 'حدث خطأ ما';
       if (e.code == 'user-not-found') {
-       emit(LoginErrorState(error:'لم يتم العثور على مستخدم بهذا البريد الإلكتروني.'));
+        emit(LoginErrorState(error:'لم يتم العثور على مستخدم بهذا البريد الإلكتروني.'));
       } else if (e.code == 'wrong-password') {
         emit(LoginErrorState(error: 'كلمه السر خطأ'));
       }else if(e.code == 'invalid-email') {
-       emit(LoginErrorState(error: 'البريد الإلكتروني غير صالح'))  ;
+        emit(LoginErrorState(error: 'البريد الإلكتروني غير صالح'))  ;
       }else{
         emit(LoginErrorState(error:errorMessage));
 
@@ -80,14 +80,14 @@ class LoginCubit extends Cubit<LoginStates> {
       print(error.toString());
       emit(GoogleLoginErrorState());
     });
-    }
+  }
 
   createUser({
     required String email,
     required String name,
     required String id,
     context
-}){
+  }){
     emit(CreateUserLoadingState());
     UserModel model=UserModel(
       email: email,
@@ -101,4 +101,4 @@ class LoginCubit extends Cubit<LoginStates> {
       emit(CreateUserErrorState());
     });
   }
-  }
+}
