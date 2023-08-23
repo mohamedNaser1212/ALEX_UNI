@@ -17,6 +17,7 @@ class Intelphonewidget extends StatelessWidget {
         } else if (phoneNumber.number.length < 11) {
           return 'من فضلك ادخل رقم الهاتف بشكل صحيح';
         }
+        return null;
       },
       decoration: const InputDecoration(
         labelText: 'رقم الهاتف',

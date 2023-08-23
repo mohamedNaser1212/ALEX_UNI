@@ -61,7 +61,7 @@ Widget reusableTextFormField({
           suffixIcon: suffix,
           prefixIcon: prefix,
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(width: 2.0, color: Colors.grey),
+            borderSide: const BorderSide(width: 2.0, color: Colors.grey),
             borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
           ),
           labelText: label,

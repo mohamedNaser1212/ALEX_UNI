@@ -2,14 +2,11 @@ import 'package:alex_uni_app/cubit/register_cubit.dart';
 import 'package:alex_uni_app/custom_widgets/Intle_phone_widget.dart';
 import 'package:alex_uni_app/custom_widgets/custom_alex_uni_logo.dart';
 import 'package:alex_uni_app/screens/email_sign_in_page.dart';
-import 'package:alex_uni_app/screens/regesteration_form.dart';
 import 'package:alex_uni_app/states/register_states.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:alex_uni_app/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_field/phone_number.dart';
 
 import '../custom_widgets/custom_text_form_field.dart';
 import 'login_details.dart';
@@ -43,9 +40,7 @@ class RegesterationForm extends StatelessWidget {
           }
         },
         builder: (context,state){
-
           RegisterCubit cubit = RegisterCubit.get(context);
-
           return Scaffold(
             body: Container(
               width: double.infinity,
@@ -104,6 +99,7 @@ class RegesterationForm extends StatelessWidget {
                                 if (data!.isEmpty) {
                                   return 'الاسم لا يمكن ان يكون فارغا';
                                 }
+                                return null;
                               },
                               labelText: 'الاسم',
                             ),
@@ -184,6 +180,7 @@ class RegesterationForm extends StatelessWidget {
                                 } else if (!data.contains('@')) {
                                   return 'من فضلك أدخل بريد إلكتروني صحيح';
                                 }
+                                return null;
                               },
                               labelText: 'البريد الالكتروني',
                             ),

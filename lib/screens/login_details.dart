@@ -8,6 +8,8 @@ import '../custom_widgets/custom_social_media_icons.dart';
 class LoginDetails extends StatelessWidget {
   static  String id = 'login_details';
 
+  const LoginDetails({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

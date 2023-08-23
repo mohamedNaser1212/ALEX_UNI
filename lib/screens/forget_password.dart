@@ -1,6 +1,4 @@
 import 'package:alex_uni_app/constants.dart';
-import 'package:alex_uni_app/custom_widgets/custom_alex_uni_logo.dart';
-import 'package:alex_uni_app/screens/email_sign_in_page.dart';
 import 'package:alex_uni_app/screens/new_password.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -34,29 +32,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     try {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: emailTextFormController.text.trim());
-  AlertDialog alert = AlertDialog(
-    title: const Text("تم ارسال رابط"),
-    content: const Text("تم ارسال رابط الي البريد الالكتروني"),
-    actions: [
-      TextButton(
-        child: const Text("موافق"),
-        onPressed: () {
-          Navigator.of(context).pop();
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginForm()));
-        },
-      ),
-    ],
-  );
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Password reset link sent to your email.'),
+          duration: Duration(seconds: 3),
+        ),
       );
     } on FirebaseAuthException catch (e) {
-      print(e.toString());
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Error sending reset link. Please try again.'),
           duration: Duration(seconds: 3),
         ),
@@ -100,12 +84,22 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: customAlexunilogo(),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.fill,
+                                  image: AssetImage(
+                                      'assets/images/facebook 4.png')),
+                              borderRadius: BorderRadius.circular(32),
+                            ),
+                            width: 250,
+                            height: 120,
+                          ),
                         ),
                       ],
                     ),
@@ -195,7 +189,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             labelStyle: TextStyle(color: Colors.white),
                             enabledBorder: OutlineInputBorder(
                               borderRadius:
-                              BorderRadius.all(Radius.circular(20)),
+                                  BorderRadius.all(Radius.circular(20)),
                               borderSide: BorderSide(color: Colors.white),
                             ),
                             border: OutlineInputBorder(
@@ -222,14 +216,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             labelStyle: TextStyle(color: Colors.white),
                             enabledBorder: OutlineInputBorder(
                               borderRadius:
-                              BorderRadius.all(Radius.circular(20)),
+                                  BorderRadius.all(Radius.circular(20)),
                               borderSide: BorderSide(color: Colors.white),
                             ),
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                             ),
                           ),
-
+                          validator: (value) {
+                            return emailValidator(value!);
+                          },
+                          onFieldSubmitted: (value) {
+                            loginFunc();
+                          },
                         ),
                       ),
                     const SizedBox(
