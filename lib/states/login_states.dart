@@ -10,3 +10,16 @@ class LoginErrorState extends LoginStates{
    String error;
   LoginErrorState({required this.error});
 }
+
+class GoogleLoginLoadingState extends LoginStates{}
+
+class GoogleLoginSuccessState extends LoginStates{}
+
+class GoogleLoginErrorState extends LoginStates{}
+
+class CreateUserLoadingState extends LoginStates{}
+
+class CreateUserSuccessState extends LoginStates{}
+
+class CreateUserErrorState extends LoginStates{}
+

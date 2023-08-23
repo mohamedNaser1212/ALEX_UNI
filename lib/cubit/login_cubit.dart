@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import '../models/user_model.dart';
 import '../states/login_states.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
@@ -41,4 +44,56 @@ class LoginCubit extends Cubit<LoginStates> {
       print(e.toString());
     }
   }
-}
+
+  googleLogin(){
+    emit(GoogleLoginLoadingState());
+    GoogleSignIn().signIn().then((value){
+      value!.authentication.then((googleKey){
+        FirebaseAuth.instance.signInWithCredential(GoogleAuthProvider.credential(
+          idToken: googleKey.idToken,
+          accessToken: googleKey.accessToken,
+        )).then((value){
+          FirebaseFirestore.instance.collection('userData').doc(value.user!.uid).get().then((ex){
+            if(ex.exists){
+              emit(GoogleLoginSuccessState());
+            }else{
+              createUser(
+                email: value.user!.email!,
+                name: value.user!.displayName!,
+                id: value.user!.uid,
+              );
+            }
+          });
+          emit(GoogleLoginSuccessState());
+        }).catchError((error){
+          print(error.toString());
+          emit(GoogleLoginErrorState());
+        });
+      }).catchError((error){
+        print(error.toString());
+        emit(GoogleLoginErrorState());
+      });
+    }).catchError((error){
+      print(error.toString());
+      emit(GoogleLoginErrorState());
+    });
+    }
+
+  createUser({
+    required String email,
+    required String name,
+    required String id,
+}){
+    emit(CreateUserLoadingState());
+    UserModel model=UserModel(
+      email: email,
+      name: name,
+      uId: id,
+    );
+    FirebaseFirestore.instance.collection('userData').doc(id).set(model.toMap()).then((value){
+      emit(CreateUserSuccessState());
+    }).catchError((error){
+      emit(CreateUserErrorState());
+    });
+  }
+  }
