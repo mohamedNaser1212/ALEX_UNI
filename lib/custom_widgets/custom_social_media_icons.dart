@@ -35,7 +35,7 @@ class CustomSocialMediaIcons extends StatelessWidget {
               ),
               child: Center(
                 child: Image.asset(
-                  'assets/Facebookicon.png',
+                  'assets/images/Facebookicon.png',
                   width: 30, // Adjust the image width as needed
                   height: 30, // Adjust the image height as needed
                 ),
@@ -56,7 +56,7 @@ class CustomSocialMediaIcons extends StatelessWidget {
               ),
               child: Center(
                 child: Image.asset(
-                  'assets/google.png',
+                  'assets/images/google.png',
                   width: 30, // Adjust the image width as needed
                   height: 30, // Adjust the image height as needed
                 ),
@@ -77,7 +77,7 @@ class CustomSocialMediaIcons extends StatelessWidget {
               ),
               child: Center(
                 child: Image.asset(
-                  'assets/twitter.png',
+                  'assets/images/twitter.png',
                   width: 30, // Adjust the image width as needed
                   height: 30, // Adjust the image height as needed
                 ),
