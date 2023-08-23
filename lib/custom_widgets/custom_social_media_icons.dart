@@ -54,7 +54,7 @@ class CustomSocialMediaIcons extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      LoginCubit.get(context).googleLogin();
+                      LoginCubit.get(context).googleLogin(context);
                     },
                     child: Container(
                       width: 60,
