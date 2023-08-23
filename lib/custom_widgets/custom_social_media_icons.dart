@@ -90,7 +90,7 @@ class CustomSocialMediaIcons extends StatelessWidget {
                     ),
                     child: Center(
                       child: Image.asset(
-                        'assets/images/twitter.png',
+                        'assets/images/twitter 3.png',
                         width: 30, // Adjust the image width as needed
                         height: 30, // Adjust the image height as needed
                       ),
