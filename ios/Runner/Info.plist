@@ -20,6 +20,35 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+    	<array>
+    		<dict>
+    			<key>CFBundleTypeRole</key>
+    			<string>Editor</string>
+    			<key>CFBundleURLSchemes</key>
+    			<array>
+    			<string>com.googleusercontent.apps.702970152564-59vbqasod5m8d0uihn9v29dg933vt5dq</string>
+    			<string>702970152564-hd4s0m6sob9kv6k9belb5tolma0m8b90.apps.googleusercontent.com</string>
+    			<string>com.googleusercontent.apps.702970152564-hd4s0m6sob9kv6k9belb5tolma0m8b90</string>
+    			</array>
+    		</dict>
+    		<dict>
+    			<key>CFBundleTypeRole</key>
+    			<string>Editor</string>
+    			<key>CFBundleURLSchemes</key>
+    			<array>
+    			<string>com.googleusercontent.apps.702970152564-59vbqasod5m8d0uihn9v29dg933vt5dq</string>
+    			<string>702970152564-hd4s0m6sob9kv6k9belb5tolma0m8b90.apps.googleusercontent.com</string>
+                 <string>com.googleusercontent.apps.702970152564-hd4s0m6sob9kv6k9belb5tolma0m8b90</string>
+    			</array>
+    		</dict>
+    		<dict>
+    			<key>CFBundleTypeRole</key>
+    			<string>Editor</string>
+    			<key>CFBundleURLSchemes</key>
+    			<array/>
+    		</dict>
+    	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.id: (context) => const SplashScreen(),
         LoginScreen.id: (context) =>  const LoginScreen(),
-        LoginDetails.id: (context) =>  const LoginDetails(),
+        LoginDetails.id: (context) =>  LoginDetails(),
         LoginForm.id: (context) =>  LoginForm(),
         SecondLoginForm.id: (context) =>  SecondLoginForm(),
         RegesterationForm.id: (context) =>  RegesterationForm(),
