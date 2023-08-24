@@ -1,4 +1,5 @@
 import 'package:alex_uni_app/reusable_widgets.dart';
+import 'package:alex_uni_app/screens/forget_password.dart';
 import 'package:alex_uni_app/screens/home_screen.dart';
 import 'package:alex_uni_app/screens/regesteration_form.dart';
 import 'package:alex_uni_app/states/login_states.dart';
@@ -128,15 +129,20 @@ class LoginForm extends StatelessWidget {
                             password = data;
                           },
                         ),
-                        const Padding(
+                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.0),
                           child: Row(
                             children: [
-                              Text('نسيت كلمة السر؟',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w900,
-                                  fontFamily: KFontFamilyT,
-                                  color: Color(0xff6DCFF6),
+                              GestureDetector(
+                                onTap: (){
+                                   Navigator.pushNamed(context, ForgotPassword.id);
+                                },
+                                child: Text('نسيت كلمة السر؟',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w900,
+                                    fontFamily: KFontFamilyT,
+                                    color: Color(0xff6DCFF6),
+                                  ),
                                 ),
                               ),
                             ],

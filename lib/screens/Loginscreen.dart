@@ -1,5 +1,4 @@
 import 'package:alex_uni_app/custom_widgets/Custom_Top_Right_And_Left_And_Bottom_Right.dart';
-import 'package:alex_uni_app/screens/Loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:alex_uni_app/constants.dart';
 import 'package:alex_uni_app/screens/login_details.dart';
@@ -10,6 +9,8 @@ import '../custom_widgets/custom_social_media_icons.dart';
 
 class LoginScreen extends StatelessWidget {
   static  String id = 'LoginScreen';
+
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

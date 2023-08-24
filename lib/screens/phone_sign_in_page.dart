@@ -1,5 +1,9 @@
+import 'dart:math';
+
 import 'package:alex_uni_app/custom_widgets/Intle_phone_widget.dart';
+import 'package:alex_uni_app/screens/otp.dart';
 import 'package:alex_uni_app/screens/regesteration_form.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
@@ -8,13 +12,43 @@ import '../constants.dart';
 import '../custom_widgets/custom_text_form_field.dart';
 
 class SecondLoginForm extends StatelessWidget {
-   SecondLoginForm({super.key});
+  SecondLoginForm({super.key});
   static String id = 'SecondLoginForm';
-   num? phone;
-   String? password;
-   GlobalKey<FormState> formKey = GlobalKey();
+  num? phone;
+  String? password;
+  GlobalKey<FormState> formKey = GlobalKey();
+  TextEditingController phoneController = TextEditingController();
+
+  
   @override
   Widget build(BuildContext context) {
+    sendOtp()async{
+
+  await FirebaseAuth.instance.verifyPhoneNumber(
+    phoneNumber: phoneController.text,
+    verificationCompleted: (PhoneAuthCredential credential)async{
+   await FirebaseAuth.instance.signInWithCredential(credential);
+    },
+     verificationFailed: (FirebaseAuthException e){
+      if(e.code=='invalid-phone-number'){
+        print('number invalid');
+      }
+    },
+      codeSent: (verificationId, forceResendingToken){
+        if(verificationId!=null){
+         
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+      Otp(verificationId: verificationId,)
+      ));
+    
+   
+        }
+        print("Verification Id: $verificationId");
+    },
+       codeAutoRetrievalTimeout: (String verificationId){},
+       timeout: Duration(seconds: 120)
+       );
+}
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -41,10 +75,9 @@ class SecondLoginForm extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child:Container(
+                        child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(32),
                             color: Colors.white,
@@ -75,25 +108,48 @@ class SecondLoginForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 60),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child:  Intelphonewidget()
-                  ),
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextField(
+                        controller: phoneController,
+                       
+                        decoration: const InputDecoration(
+                          labelText: 'رقم الهاتف',
+                          labelStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
+                            ),
+                            borderSide: BorderSide(),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
+                            ),
+                            borderSide: BorderSide(
+                              color: Colors.white, // White border color
+                            ),
+                          ),
+                        ),
+                        
+                      )),
 
                   const SizedBox(height: 20), // Add some space between fields
                   CustomTextFormField(
-                    obscureText: true,
-                    onChanged: (value) {
-                      password = value;
-                    },
-                    keyboardType: TextInputType.visiblePassword,
-                    validator: (data){
-                      if(data!.isEmpty){
-                        return 'الباسورد لا يمكن ان يكون فارغا';
-                      }else if(data.length < 6){
-                        return 'الباسورد لا يمكن ان يكون اقل من 6 احرف';
-                      }
-                      return null;
-                    },
+                      obscureText: true,
+                      onChanged: (value) {
+                        password = value;
+                      },
+                      keyboardType: TextInputType.visiblePassword,
+                      validator: (data) {
+                        if (data!.isEmpty) {
+                          return 'الباسورد لا يمكن ان يكون فارغا';
+                        } else if (data.length < 6) {
+                          return 'الباسورد لا يمكن ان يكون اقل من 6 احرف';
+                        }
+                        return null;
+                      },
                       labelText: 'الباسورد'),
                   const Padding(
                     padding:
@@ -114,11 +170,8 @@ class SecondLoginForm extends StatelessWidget {
                   const SizedBox(height: 30),
                   GestureDetector(
                     onTap: () {
-                      if (formKey.currentState!.validate()) {
-
-                      }else{
-                        print('not valid');
-                      }
+                      sendOtp();
+                     
                     },
                     child: Container(
                       width: 200,
@@ -145,29 +198,33 @@ class SecondLoginForm extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-                   Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           Navigator.pushNamed(context, RegesterationForm.id);
                         },
-                        child: const Text('انشاء حساب',
+                        child: const Text(
+                          'انشاء حساب',
                           style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontFamily: KFontFamilyT,
                             color: KRegesterButtoncolor,
-
-                          ),),
+                          ),
+                        ),
                       ),
-                      const SizedBox(width: 5,),
-                      const Text('ليس لديك حساب؟',
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      const Text(
+                        'ليس لديك حساب؟',
                         style: TextStyle(
                           fontWeight: FontWeight.w900,
                           fontFamily: KFontFamilyT,
                           color: Colors.white,
-
-                        ),),
+                        ),
+                      ),
                     ],
                   ),
                 ],
