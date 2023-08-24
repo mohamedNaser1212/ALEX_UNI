@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '702970152564',
     projectId: 'alexandria-university-app',
     authDomain: 'alexandria-university-app.firebaseapp.com',
+    databaseURL: 'https://alexandria-university-app-default-rtdb.firebaseio.com',
     storageBucket: 'alexandria-university-app.appspot.com',
     measurementId: 'G-4WDG9M7L47',
   );
@@ -58,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:702970152564:android:e59d4476e1a4493f037321',
     messagingSenderId: '702970152564',
     projectId: 'alexandria-university-app',
+    databaseURL: 'https://alexandria-university-app-default-rtdb.firebaseio.com',
     storageBucket: 'alexandria-university-app.appspot.com',
   );
 
@@ -66,7 +68,9 @@ class DefaultFirebaseOptions {
     appId: '1:702970152564:ios:40e7d3442081036c037321',
     messagingSenderId: '702970152564',
     projectId: 'alexandria-university-app',
+    databaseURL: 'https://alexandria-university-app-default-rtdb.firebaseio.com',
     storageBucket: 'alexandria-university-app.appspot.com',
+    androidClientId: '702970152564-7ue8j666f7f0b7kfna98i733u6esaevq.apps.googleusercontent.com',
     iosClientId: '702970152564-59vbqasod5m8d0uihn9v29dg933vt5dq.apps.googleusercontent.com',
     iosBundleId: 'com.example.alexUniApp',
   );
@@ -76,7 +80,9 @@ class DefaultFirebaseOptions {
     appId: '1:702970152564:ios:b218bc965979f47a037321',
     messagingSenderId: '702970152564',
     projectId: 'alexandria-university-app',
+    databaseURL: 'https://alexandria-university-app-default-rtdb.firebaseio.com',
     storageBucket: 'alexandria-university-app.appspot.com',
+    androidClientId: '702970152564-7ue8j666f7f0b7kfna98i733u6esaevq.apps.googleusercontent.com',
     iosClientId: '702970152564-bcsqmfm2b93g8493veofcemros8iqbfs.apps.googleusercontent.com',
     iosBundleId: 'com.example.alexUniApp.RunnerTests',
   );

@@ -6,6 +6,8 @@
 	<string>702970152564-59vbqasod5m8d0uihn9v29dg933vt5dq.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.702970152564-59vbqasod5m8d0uihn9v29dg933vt5dq</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>702970152564-7ue8j666f7f0b7kfna98i733u6esaevq.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAJLSJQqlSIj3vrivf7MNNyA-NUkFjeIzw</string>
 	<key>GCM_SENDER_ID</key>
@@ -30,5 +32,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:702970152564:ios:40e7d3442081036c037321</string>
+	<key>DATABASE_URL</key>
+	<string>https://alexandria-university-app-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
